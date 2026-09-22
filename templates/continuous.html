@@ -1,0 +1,241 @@
+{% extends "base.html" %}
+{% block title %}Presente Perfecto Continuo &middot; Present Perfect Lab{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+  <span class="page-tag">Lección 2 &middot; Present Perfect Continuous</span>
+  <h1>Presente Perfecto Continuo</h1>
+  <p class="lede">
+    Pone el foco en la duración o en el proceso de una acción que empezó
+    en el pasado y sigue conectada con el presente, ya sea porque continúa
+    ahora o porque acaba de terminar y deja evidencia visible.
+  </p>
+
+  <span class="formula">Subject + have / has + been + verb-ing</span>
+</section>
+
+<!-- ============================================================
+     FILA 1 — Texto (Izquierda) | Multimedia (Derecha)
+     ============================================================ -->
+<div class="lesson-row">
+  <div class="text-block">
+    <span class="row-index">01 — Formación</span>
+    <h3>Cómo se construye la oración</h3>
+
+    <div class="text-en">
+      <span class="lang-label">English</span>
+      <p>
+        This tense is formed with <strong>have/has + been</strong> plus the
+        main verb in its <strong>-ing</strong> form: <em>I have been
+        studying</em>, <em>he has been waiting</em>. The word "been" never
+        changes, only the auxiliary agrees with the subject.
+      </p>
+    </div>
+
+    <div class="text-es">
+      <span class="lang-label">Español</span>
+      <p>
+        Se forma con <strong>have/has + been</strong> más el verbo principal
+        en su forma <strong>-ing</strong>: <em>I have been studying</em>
+        (He estado estudiando). La palabra "been" nunca cambia; solo el
+        auxiliar concuerda con el sujeto.
+      </p>
+    </div>
+  </div>
+
+  <div class="media-block">
+    <!-- 🎬 REEMPLAZA "video1.mp4" por tu archivo real dentro de static/assets/ -->
+    <video controls preload="metadata">
+      <source src="{{ url_for('static', filename='assets/video1.mp4') }}" type="video/mp4">
+      Tu navegador no soporta la reproducción de este video.
+    </video>
+    <div class="media-caption">
+      <span>Explicación en video: formación del Present Perfect Continuous</span>
+      <span class="media-type">Video 1</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FILA 2 — Multimedia (Izquierda) | Texto (Derecha)
+     ============================================================ -->
+<div class="lesson-row is-reversed">
+  <div class="media-block">
+    <!-- 🎬 REEMPLAZA "video2.mp4" por tu archivo real dentro de static/assets/ -->
+    <video controls preload="metadata">
+      <source src="{{ url_for('static', filename='assets/video2.mp4') }}" type="video/mp4">
+      Tu navegador no soporta la reproducción de este video.
+    </video>
+    <div class="media-caption">
+      <span>Ejemplos reales: acciones que continúan ahora</span>
+      <span class="media-type">Video 2</span>
+    </div>
+  </div>
+
+  <div class="text-block">
+    <span class="row-index">02 — Uso: duración hasta ahora</span>
+    <h3>Emphasis on duration</h3>
+
+    <div class="text-en">
+      <span class="lang-label">English</span>
+      <p>
+        We use it to emphasize <strong>how long</strong> an activity has
+        been happening, and it is often still happening now:
+        <em>I have been working here for five years.</em> The focus is on
+        the ongoing process, not on a finished result.
+      </p>
+    </div>
+
+    <div class="text-es">
+      <span class="lang-label">Español</span>
+      <p>
+        Se usa para enfatizar <strong>cuánto tiempo</strong> lleva
+        ocurriendo una actividad, que muchas veces sigue pasando ahora:
+        <em>I have been working here for five years</em> (Llevo cinco años
+        trabajando aquí). El foco está en el proceso, no en un resultado
+        terminado.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FILA 3 — Texto (Izquierda) | Multimedia (Derecha)
+     ============================================================ -->
+<div class="lesson-row">
+  <div class="text-block">
+    <span class="row-index">03 — Evidencia presente</span>
+    <h3>Acción reciente con resultado visible</h3>
+
+    <div class="text-en">
+      <span class="lang-label">English</span>
+      <p>
+        Sometimes the activity just finished, but its evidence is visible
+        right now: <em>Your hands are dirty — have you been fixing the
+        car?</em> Here we care about the visible effect of the recent
+        activity, not exactly when it stopped.
+      </p>
+    </div>
+
+    <div class="text-es">
+      <span class="lang-label">Español</span>
+      <p>
+        A veces la actividad acaba de terminar, pero su evidencia es
+        visible ahora mismo: <em>Your hands are dirty — have you been
+        fixing the car?</em> (Tienes las manos sucias, ¿has estado
+        arreglando el carro?). Importa el efecto visible, no el momento
+        exacto en que terminó.
+      </p>
+    </div>
+  </div>
+
+  <div class="media-block">
+    <!-- 🖼️ REEMPLAZA "image1.jpg" por tu archivo real dentro de static/assets/ -->
+    <img src="{{ url_for('static', filename='assets/image1.jpg') }}" alt="Ilustración de evidencia de una acción reciente">
+    <div class="media-caption">
+      <span>Infografía: pistas visibles de una acción reciente</span>
+      <span class="media-type">Imagen 1</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FILA 4 — Multimedia (Izquierda) | Texto (Derecha)
+     ============================================================ -->
+<div class="lesson-row is-reversed">
+  <div class="media-block">
+    <!-- 🎬 REEMPLAZA "video3.mp4" por tu archivo real dentro de static/assets/ -->
+    <video controls preload="metadata">
+      <source src="{{ url_for('static', filename='assets/video3.mp4') }}" type="video/mp4">
+      Tu navegador no soporta la reproducción de este video.
+    </video>
+    <div class="media-caption">
+      <span>Acciones repetidas y hábitos temporales</span>
+      <span class="media-type">Video 3</span>
+    </div>
+  </div>
+
+  <div class="text-block">
+    <span class="row-index">04 — Repetición temporal</span>
+    <h3>Repeated actions over a period</h3>
+
+    <div class="text-en">
+      <span class="lang-label">English</span>
+      <p>
+        This tense can describe a series of repeated actions during a
+        temporary period: <em>She has been calling me every day this
+        week.</em> It suggests the pattern is ongoing or recent, not a
+        permanent habit.
+      </p>
+    </div>
+
+    <div class="text-es">
+      <span class="lang-label">Español</span>
+      <p>
+        Puede describir una serie de acciones repetidas durante un periodo
+        temporal: <em>She has been calling me every day this week</em>
+        (Ella me ha estado llamando todos los días esta semana). Sugiere
+        que el patrón es reciente o continúa, no un hábito permanente.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FILA 5 — Texto (Izquierda) | Multimedia (Derecha)
+     ============================================================ -->
+<div class="lesson-row">
+  <div class="text-block">
+    <span class="row-index">05 — Marcadores temporales</span>
+    <h3>How long, lately, recently</h3>
+
+    <div class="text-en">
+      <span class="lang-label">English</span>
+      <p>
+        We ask about duration with <strong>how long</strong>
+        (<em>How long have you been waiting?</em>) and describe recent
+        activity with <strong>lately</strong> or <strong>recently</strong>.
+        <strong>For</strong> and <strong>since</strong> also work here,
+        just as in the simple form.
+      </p>
+    </div>
+
+    <div class="text-es">
+      <span class="lang-label">Español</span>
+      <p>
+        Preguntamos por duración con <strong>how long</strong> (¿Cuánto
+        tiempo llevas...?) y describimos actividad reciente con
+        <strong>lately</strong> o <strong>recently</strong>.
+        <strong>For</strong> y <strong>since</strong> también aplican aquí,
+        igual que en la forma simple.
+      </p>
+    </div>
+  </div>
+
+  <div class="media-block">
+    <!-- 🖼️ REEMPLAZA "image2.jpg" por tu archivo real dentro de static/assets/ -->
+    <img src="{{ url_for('static', filename='assets/image2.jpg') }}" alt="Línea de tiempo con how long, lately y recently">
+    <div class="media-caption">
+      <span>Diagrama: how long / lately / recently</span>
+      <span class="media-type">Imagen 2</span>
+    </div>
+  </div>
+</div>
+
+<div class="note-grid">
+  <div class="note-card">
+    <h4>Usa Present Perfect Continuous cuando…</h4>
+    <p>Te interesa la duración o el proceso de una actividad, más que su resultado final.</p>
+  </div>
+  <div class="note-card">
+    <h4>Palabras clave</h4>
+    <p>how long, for, since, lately, recently, all day, all week.</p>
+  </div>
+  <div class="note-card">
+    <h4>Error común</h4>
+    <p>No se usa con verbos de estado (know, believe, love): <em>"I have been knowing him"</em> es incorrecto.</p>
+  </div>
+</div>
+
+{% endblock %}

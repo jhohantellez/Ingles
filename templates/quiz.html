@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Parcial &middot; Present Perfect Lab{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+  <span class="page-tag">Parcial &middot; Evaluación corta</span>
+  <h1>Parcial: Present Perfect Simple &amp; Continuous</h1>
+  <p class="lede">
+    10 preguntas para poner a prueba lo aprendido. Selecciona una opción
+    y verás de inmediato si es correcta, junto con una explicación breve
+    del porqué.
+  </p>
+</section>
+
+<div class="quiz-progress-wrap">
+  <div class="quiz-progress-track">
+    <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+  </div>
+  <span id="quiz-score-label">Puntaje: 0 / 10</span>
+</div>
+
+<div class="quiz-card" id="quiz-card">
+  <div class="quiz-question-index" id="quiz-question-index">Pregunta 1 de 10</div>
+  <div class="quiz-question-text" id="quiz-question-text"></div>
+
+  <div class="quiz-options" id="quiz-options"></div>
+
+  <div class="quiz-feedback" id="quiz-feedback"></div>
+</div>
+
+<div class="quiz-nav">
+  <button class="btn btn-primary" id="quiz-next-btn" disabled>Siguiente pregunta</button>
+</div>
+
+<div class="quiz-result" id="quiz-result">
+  <div class="score-number" id="quiz-result-score">0 / 10</div>
+  <h3>Resultado del parcial</h3>
+  <p id="quiz-result-message" style="max-width: 46ch; margin: 0 auto 24px auto;"></p>
+  <button class="btn btn-primary" id="quiz-restart-btn">Intentar de nuevo</button>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,776 @@
+/* =========================================================================
+   PRESENT PERFECT LAB — style.css
+   Sistema de diseño: Modo Oscuro / Minimalista sofisticado
+   Tipografía: Space Grotesk (display) + Inter (cuerpo)
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   1. TOKENS
+   ------------------------------------------------------------------------- */
+:root {
+  /* Fondo */
+  --bg: #0a0c10;
+  --bg-elevated: #12151c;
+  --bg-elevated-2: #171b24;
+  --bg-glass: rgba(18, 21, 28, 0.72);
+
+  /* Bordes */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  /* Texto */
+  --text-primary: #e9ebf1;
+  --text-secondary: #949bac;
+  --text-muted: #5c6274;
+
+  /* Acentos neón tenues (uno por sección) */
+  --accent-cyan: #5eead4;
+  --accent-cyan-dim: rgba(94, 234, 212, 0.14);
+  --accent-violet: #b19dfd;
+  --accent-violet-dim: rgba(177, 157, 253, 0.14);
+  --accent-amber: #f2b880;
+  --accent-amber-dim: rgba(242, 184, 128, 0.14);
+  --accent-rose: #f4879a;
+  --accent-rose-dim: rgba(244, 135, 154, 0.14);
+
+  /* Semánticos (quiz) */
+  --success: #57d38c;
+  --success-dim: rgba(87, 211, 140, 0.12);
+  --error: #f16565;
+  --error-dim: rgba(241, 101, 101, 0.12);
+
+  /* Acento activo por defecto (se sobreescribe por página) */
+  --page-accent: var(--accent-cyan);
+  --page-accent-dim: var(--accent-cyan-dim);
+
+  /* Tipografía */
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Radios y sombras */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Cada página adopta un acento distinto, para orientar visualmente
+   en qué sección del curso está el estudiante. */
+body.page-simple { --page-accent: var(--accent-cyan); --page-accent-dim: var(--accent-cyan-dim); }
+body.page-continuous { --page-accent: var(--accent-violet); --page-accent-dim: var(--accent-violet-dim); }
+body.page-comparison { --page-accent: var(--accent-amber); --page-accent-dim: var(--accent-amber-dim); }
+body.page-quiz { --page-accent: var(--accent-rose); --page-accent-dim: var(--accent-rose-dim); }
+
+/* -------------------------------------------------------------------------
+   2. RESET / BASE
+   ------------------------------------------------------------------------- */
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(94, 234, 212, 0.05), transparent 40%),
+    radial-gradient(circle at 88% 92%, rgba(177, 157, 253, 0.05), transparent 40%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin: 0 0 0.5em 0;
+}
+
+p { margin: 0 0 1em 0; color: var(--text-secondary); }
+
+a { color: inherit; text-decoration: none; }
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: var(--page-accent);
+  color: #0a0c10;
+}
+
+/* Respeta la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Foco visible accesible */
+a:focus-visible,
+button:focus-visible,
+.quiz-option:focus-visible {
+  outline: 2px solid var(--page-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* -------------------------------------------------------------------------
+   3. LAYOUT GENERAL
+   ------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+main {
+  padding-top: 56px;
+  padding-bottom: 96px;
+  min-height: 60vh;
+}
+
+/* -------------------------------------------------------------------------
+   4. NAVBAR
+   ------------------------------------------------------------------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg-glass);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.brand-mark {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--page-accent);
+  box-shadow: 0 0 12px var(--page-accent);
+  transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.brand-sub {
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.82rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  position: relative;
+  display: block;
+  padding: 10px 16px;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  transition: color 0.25s var(--ease), background-color 0.25s var(--ease);
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 4px;
+  height: 2px;
+  background: var(--page-accent);
+  box-shadow: 0 0 8px var(--page-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-link.active {
+  color: var(--text-primary);
+}
+
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.nav-toggle {
+  display: none;
+}
+
+/* Navbar responsive (menú simple en móvil) */
+@media (max-width: 780px) {
+  .nav-links {
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--bg-elevated);
+    border-bottom: 1px solid var(--border);
+    padding: 8px;
+    gap: 2px;
+    display: none;
+  }
+  .nav-links.open { display: flex; }
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   5. HERO DE PÁGINA (encabezado de cada lección)
+   ------------------------------------------------------------------------- */
+.page-hero {
+  padding: 12px 0 48px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 56px;
+}
+
+.page-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--page-accent);
+  border: 1px solid var(--border-strong);
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+  background: var(--page-accent-dim);
+}
+
+.page-hero h1 {
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  max-width: 16ch;
+}
+
+.page-hero .lede {
+  max-width: 62ch;
+  font-size: 1.04rem;
+  color: var(--text-secondary);
+}
+
+/* -------------------------------------------------------------------------
+   6. FILAS DE LECCIÓN (texto / multimedia alternado en zigzag)
+   ------------------------------------------------------------------------- */
+.lesson-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 44px 0;
+}
+
+.lesson-row + .lesson-row {
+  border-top: 1px solid var(--border);
+}
+
+.lesson-row .text-block { order: 1; }
+.lesson-row .media-block { order: 2; }
+
+/* Fila alterna: multimedia a la izquierda, texto a la derecha */
+.lesson-row.is-reversed .text-block { order: 2; }
+.lesson-row.is-reversed .media-block { order: 1; }
+
+.row-index {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+.text-block h3 {
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+}
+
+.text-en, .text-es {
+  border-left: 2px solid var(--border-strong);
+  padding-left: 16px;
+  margin-bottom: 16px;
+}
+
+.text-en:hover, .text-es:hover {
+  border-left-color: var(--page-accent);
+  transition: border-color 0.3s var(--ease);
+}
+
+.lang-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.text-en p, .text-es p {
+  margin-bottom: 0;
+  color: var(--text-primary);
+  opacity: 0.88;
+  font-size: 0.98rem;
+}
+
+.text-es p { color: var(--text-secondary); font-style: normal; }
+
+/* Bloque de multimedia */
+.media-block {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-elevated);
+  transition: border-color 0.35s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.media-block:hover {
+  border-color: var(--page-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--page-accent-dim);
+}
+
+.media-block video,
+.media-block img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #05060a;
+}
+
+.media-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.media-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--page-accent-dim);
+  color: var(--page-accent);
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+}
+
+/* Comentario visual para recordar el placeholder a reemplazar */
+.replace-note {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 860px) {
+  .lesson-row,
+  .lesson-row.is-reversed {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 32px 0;
+  }
+  .lesson-row .text-block,
+  .lesson-row.is-reversed .text-block,
+  .lesson-row .media-block,
+  .lesson-row.is-reversed .media-block {
+    order: initial;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   7. TARJETAS DE APOYO (estructura, uso, notas)
+   ------------------------------------------------------------------------- */
+.note-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin: 40px 0 8px 0;
+}
+
+.note-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  background: linear-gradient(180deg, var(--bg-elevated), var(--bg-elevated-2));
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.note-card:hover {
+  border-color: var(--page-accent);
+  transform: translateY(-2px);
+}
+
+.note-card h4 {
+  font-size: 0.95rem;
+  color: var(--page-accent);
+  margin-bottom: 8px;
+}
+
+.note-card p { font-size: 0.9rem; margin-bottom: 0; }
+
+.formula {
+  display: inline-block;
+  font-family: "Space Grotesk", monospace;
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border-strong);
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  margin: 8px 0 20px 0;
+  font-size: 1rem;
+  color: var(--page-accent);
+  letter-spacing: 0.01em;
+}
+
+/* -------------------------------------------------------------------------
+   8. TABLA COMPARATIVA (página Comparación)
+   ------------------------------------------------------------------------- */
+.compare-table-wrap {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin: 8px 0 60px 0;
+}
+
+table.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.compare-table th, .compare-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.compare-table thead th {
+  background: var(--bg-elevated);
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.compare-table tbody th {
+  color: var(--text-muted);
+  font-weight: 400;
+  width: 22%;
+  font-size: 0.8rem;
+}
+
+.compare-table tbody tr:last-child td,
+.compare-table tbody tr:last-child th {
+  border-bottom: none;
+}
+
+.compare-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.pill-simple { color: var(--accent-cyan); }
+.pill-continuous { color: var(--accent-violet); }
+
+/* -------------------------------------------------------------------------
+   9. QUIZ (Página Parcial)
+   ------------------------------------------------------------------------- */
+.quiz-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.quiz-progress-track {
+  flex: 1;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--bg-elevated-2);
+  overflow: hidden;
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--page-accent);
+  box-shadow: 0 0 10px var(--page-accent);
+  transition: width 0.4s var(--ease);
+}
+
+#quiz-score-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.quiz-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  background: var(--bg-elevated);
+  margin-bottom: 24px;
+}
+
+.quiz-question-index {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  color: var(--page-accent);
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.quiz-question-text {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 26px;
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+.quiz-options {
+  display: grid;
+  gap: 12px;
+}
+
+.quiz-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated-2);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease), transform 0.15s var(--ease);
+}
+
+.quiz-option:hover:not(:disabled) {
+  border-color: var(--page-accent);
+  background: var(--page-accent-dim);
+  transform: translateX(2px);
+}
+
+.quiz-option:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+.quiz-option:disabled {
+  cursor: default;
+}
+
+.option-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.quiz-option.is-correct {
+  border-color: var(--success);
+  background: var(--success-dim);
+  animation: pulse-correct 0.5s var(--ease);
+}
+
+.quiz-option.is-correct .option-letter {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.quiz-option.is-incorrect {
+  border-color: var(--error);
+  background: var(--error-dim);
+  animation: shake 0.4s var(--ease);
+}
+
+.quiz-option.is-incorrect .option-letter {
+  border-color: var(--error);
+  color: var(--error);
+}
+
+@keyframes pulse-correct {
+  0% { box-shadow: 0 0 0 0 var(--success-dim); }
+  70% { box-shadow: 0 0 0 10px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.quiz-feedback {
+  display: none;
+  margin-top: 20px;
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.quiz-feedback.visible { display: block; }
+
+.quiz-feedback.correct {
+  border-color: var(--success);
+  background: var(--success-dim);
+  color: var(--text-primary);
+}
+
+.quiz-feedback.incorrect {
+  border-color: var(--error);
+  background: var(--error-dim);
+  color: var(--text-primary);
+}
+
+.quiz-feedback-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.quiz-feedback.correct .quiz-feedback-title { color: var(--success); }
+.quiz-feedback.incorrect .quiz-feedback-title { color: var(--error); }
+
+.quiz-nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: border-color 0.25s var(--ease), background-color 0.25s var(--ease), opacity 0.25s var(--ease);
+}
+
+.btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  border-color: var(--page-accent);
+  background: var(--page-accent-dim);
+  color: var(--page-accent);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--page-accent);
+  color: #0a0c10;
+}
+
+.quiz-result {
+  display: none;
+  text-align: center;
+  padding: 56px 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-elevated);
+}
+
+.quiz-result.visible { display: block; }
+
+.quiz-result .score-number {
+  font-family: var(--font-display);
+  font-size: 3.4rem;
+  color: var(--page-accent);
+  margin-bottom: 6px;
+}
+
+/* -------------------------------------------------------------------------
+   10. FOOTER
+   ------------------------------------------------------------------------- */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}

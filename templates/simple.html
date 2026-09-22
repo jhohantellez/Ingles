@@ -1,0 +1,243 @@
+{% extends "base.html" %}
+{% block title %}Presente Perfecto Simple &middot; Present Perfect Lab{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+  <span class="page-tag">Lección 1 &middot; Present Perfect Simple</span>
+  <h1>Presente Perfecto Simple</h1>
+  <p class="lede">
+    Un tiempo verbal que conecta el pasado con el presente: se usa para hablar de
+    experiencias de vida, acciones recién terminadas y hechos cuyo resultado
+    todavía importa ahora mismo.
+  </p>
+
+  <span class="formula">Subject + have / has + past participle (verbo en participio)</span>
+</section>
+
+<!-- ============================================================
+     FILA 1 — Texto (Izquierda) | Multimedia (Derecha)
+     ============================================================ -->
+<div class="lesson-row">
+  <div class="text-block">
+    <span class="row-index">01 — Formación</span>
+    <h3>Cómo se construye la oración</h3>
+
+    <div class="text-en">
+      <span class="lang-label">English</span>
+      <p>
+        The Present Perfect Simple is formed with the auxiliary verb
+        <strong>have</strong> or <strong>has</strong> followed by the past
+        participle of the main verb: <em>I have finished</em>,
+        <em>she has traveled</em>. For negatives we add "not" after the
+        auxiliary, and for questions we invert the auxiliary and the subject.
+      </p>
+    </div>
+
+    <div class="text-es">
+      <span class="lang-label">Español</span>
+      <p>
+        Se forma con el auxiliar <strong>have</strong> o <strong>has</strong>
+        seguido del participio pasado del verbo principal: <em>I have
+        finished</em> (he terminado), <em>she has traveled</em> (ella ha
+        viajado). Para negar, se añade "not" después del auxiliar; para
+        preguntar, se invierte el orden auxiliar-sujeto.
+      </p>
+    </div>
+  </div>
+
+  <div class="media-block">
+    <!-- 🎬 REEMPLAZA "video1.mp4" por tu archivo real dentro de static/assets/ -->
+    <video controls preload="metadata">
+      <source src="{{ url_for('static', filename='assets/video1.mp4') }}" type="video/mp4">
+      Tu navegador no soporta la reproducción de este video.
+    </video>
+    <div class="media-caption">
+      <span>Explicación en video: formación del Present Perfect Simple</span>
+      <span class="media-type">Video 1</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FILA 2 — Multimedia (Izquierda) | Texto (Derecha)
+     ============================================================ -->
+<div class="lesson-row is-reversed">
+  <div class="media-block">
+    <!-- 🎬 REEMPLAZA "video2.mp4" por tu archivo real dentro de static/assets/ -->
+    <video controls preload="metadata">
+      <source src="{{ url_for('static', filename='assets/video2.mp4') }}" type="video/mp4">
+      Tu navegador no soporta la reproducción de este video.
+    </video>
+    <div class="media-caption">
+      <span>Ejemplos reales: experiencias de vida</span>
+      <span class="media-type">Video 2</span>
+    </div>
+  </div>
+
+  <div class="text-block">
+    <span class="row-index">02 — Uso: experiencias de vida</span>
+    <h3>Life experience</h3>
+
+    <div class="text-en">
+      <span class="lang-label">English</span>
+      <p>
+        We use this tense to talk about experiences at some point in our
+        lives, without saying exactly when they happened:
+        <em>I have visited Japan twice.</em> The specific date doesn't
+        matter — what matters is that the experience exists in your history.
+      </p>
+    </div>
+
+    <div class="text-es">
+      <span class="lang-label">Español</span>
+      <p>
+        Usamos este tiempo para hablar de experiencias vividas en algún
+        momento de la vida, sin especificar cuándo ocurrieron exactamente:
+        <em>I have visited Japan twice</em> (He visitado Japón dos veces).
+        La fecha exacta no importa; lo relevante es que la experiencia
+        forma parte de tu historia.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FILA 3 — Texto (Izquierda) | Multimedia (Derecha)
+     ============================================================ -->
+<div class="lesson-row">
+  <div class="text-block">
+    <span class="row-index">03 — Marcadores temporales</span>
+    <h3>Already, yet, just</h3>
+
+    <div class="text-en">
+      <span class="lang-label">English</span>
+      <p>
+        <strong>Already</strong> shows something happened sooner than
+        expected (<em>I have already eaten</em>). <strong>Yet</strong>
+        appears in negatives and questions to ask if something has
+        happened up to now (<em>Have you finished yet?</em>).
+        <strong>Just</strong> means "a very short time ago"
+        (<em>She has just arrived</em>).
+      </p>
+    </div>
+
+    <div class="text-es">
+      <span class="lang-label">Español</span>
+      <p>
+        <strong>Already</strong> (ya) indica que algo pasó antes de lo
+        esperado. <strong>Yet</strong> (todavía / aún) se usa en negativas
+        y preguntas para saber si algo ha pasado hasta ahora.
+        <strong>Just</strong> (acabar de) significa "hace muy poco tiempo".
+      </p>
+    </div>
+  </div>
+
+  <div class="media-block">
+    <!-- 🖼️ REEMPLAZA "image1.jpg" por tu archivo real dentro de static/assets/ -->
+    <img src="{{ url_for('static', filename='assets/image1.jpg') }}" alt="Línea de tiempo de marcadores del Present Perfect Simple">
+    <div class="media-caption">
+      <span>Infografía: already / yet / just en la línea de tiempo</span>
+      <span class="media-type">Imagen 1</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FILA 4 — Multimedia (Izquierda) | Texto (Derecha)
+     ============================================================ -->
+<div class="lesson-row is-reversed">
+  <div class="media-block">
+    <!-- 🎬 REEMPLAZA "video3.mp4" por tu archivo real dentro de static/assets/ -->
+    <video controls preload="metadata">
+      <source src="{{ url_for('static', filename='assets/video3.mp4') }}" type="video/mp4">
+      Tu navegador no soporta la reproducción de este video.
+    </video>
+    <div class="media-caption">
+      <span>Ever / never en preguntas y negaciones</span>
+      <span class="media-type">Video 3</span>
+    </div>
+  </div>
+
+  <div class="text-block">
+    <span class="row-index">04 — Ever &amp; never</span>
+    <h3>Preguntando por experiencias</h3>
+
+    <div class="text-en">
+      <span class="lang-label">English</span>
+      <p>
+        <strong>Ever</strong> is used in questions to ask about experience
+        at any time before now: <em>Have you ever tried sushi?</em>
+        <strong>Never</strong> is used in affirmative sentences with a
+        negative meaning: <em>I have never seen snow.</em>
+      </p>
+    </div>
+
+    <div class="text-es">
+      <span class="lang-label">Español</span>
+      <p>
+        <strong>Ever</strong> (alguna vez) se usa en preguntas sobre
+        experiencias previas. <strong>Never</strong> (nunca) se usa en
+        oraciones afirmativas con significado negativo:
+        <em>I have never seen snow</em> (Nunca he visto nieve).
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FILA 5 — Texto (Izquierda) | Multimedia (Derecha)
+     ============================================================ -->
+<div class="lesson-row">
+  <div class="text-block">
+    <span class="row-index">05 — Resultado presente</span>
+    <h3>For &amp; since: duración hasta ahora</h3>
+
+    <div class="text-en">
+      <span class="lang-label">English</span>
+      <p>
+        We also use this tense when a past action has a visible result
+        now: <em>I have lost my keys</em> (so I can't get in). We combine
+        it with <strong>for</strong> + a period of time
+        (<em>for three years</em>) and <strong>since</strong> + a starting
+        point (<em>since 2020</em>).
+      </p>
+    </div>
+
+    <div class="text-es">
+      <span class="lang-label">Español</span>
+      <p>
+        También se usa cuando una acción pasada tiene un resultado visible
+        ahora: <em>I have lost my keys</em> (He perdido mis llaves, por eso
+        no puedo entrar). Se combina con <strong>for</strong> + un periodo
+        de tiempo y <strong>since</strong> + un punto de partida.
+      </p>
+    </div>
+  </div>
+
+  <div class="media-block">
+    <!-- 🖼️ REEMPLAZA "image2.jpg" por tu archivo real dentro de static/assets/ -->
+    <img src="{{ url_for('static', filename='assets/image2.jpg') }}" alt="Diagrama comparativo de for y since">
+    <div class="media-caption">
+      <span>Diagrama: diferencia entre "for" y "since"</span>
+      <span class="media-type">Imagen 2</span>
+    </div>
+  </div>
+</div>
+
+<div class="note-grid">
+  <div class="note-card">
+    <h4>Usa Present Perfect Simple cuando…</h4>
+    <p>Hablas de experiencias, resultados presentes o el número de veces que algo ha pasado.</p>
+  </div>
+  <div class="note-card">
+    <h4>Palabras clave</h4>
+    <p>already, yet, just, ever, never, for, since, so far, recently.</p>
+  </div>
+  <div class="note-card">
+    <h4>Error común</h4>
+    <p>No se usa con fechas específicas terminadas: <em>"I have seen him yesterday"</em> es incorrecto; usa Past Simple.</p>
+  </div>
+</div>
+
+{% endblock %}

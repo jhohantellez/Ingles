@@ -1,0 +1,16 @@
+Coloca aquí tus archivos multimedia reales, con estos nombres exactos
+(o cambia el nombre en el HTML correspondiente si prefieres otros nombres):
+
+video1.mp4
+video2.mp4
+video3.mp4
+image1.jpg
+image2.jpg
+
+Estos mismos 5 archivos se reutilizan en simple.html y continuous.html.
+La página comparison.html usa solo video1.mp4, image1.jpg e image2.jpg.
+
+Formatos recomendados:
+- Video: .mp4 (códec H.264) para máxima compatibilidad con <video controls>.
+- Imagen: .jpg o .png, idealmente en proporción 16:9 para que se vean
+  consistentes dentro de las tarjetas multimedia.

@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+{% block title %}Comparación &middot; Present Perfect Lab{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+  <span class="page-tag">Lección 3 &middot; Simple vs. Continuous</span>
+  <h1>Presente Perfecto: Simple vs. Continuo</h1>
+  <p class="lede">
+    Ambos tiempos conectan pasado y presente, pero responden preguntas
+    distintas: uno pregunta <em>"¿qué ha pasado?"</em> y el otro
+    <em>"¿durante cuánto tiempo ha estado pasando?"</em>
+  </p>
+</section>
+
+<!-- ============================================================
+     FILA 1 — Texto (Izquierda) | Multimedia (Derecha)
+     ============================================================ -->
+<div class="lesson-row">
+  <div class="text-block">
+    <span class="row-index">01 — La diferencia clave</span>
+    <h3>Resultado vs. proceso</h3>
+
+    <div class="text-en">
+      <span class="lang-label">English</span>
+      <p>
+        Present Perfect <strong>Simple</strong> focuses on the result or
+        the fact that something happened: <em>I have painted the wall</em>
+        (it's done). Present Perfect <strong>Continuous</strong> focuses on
+        the activity itself and its duration: <em>I have been painting
+        the wall</em> (it may or may not be finished — what matters is the
+        process).
+      </p>
+    </div>
+
+    <div class="text-es">
+      <span class="lang-label">Español</span>
+      <p>
+        El <strong>Simple</strong> se enfoca en el resultado o el hecho de
+        que algo ocurrió: <em>I have painted the wall</em> (ya está hecho).
+        El <strong>Continuo</strong> se enfoca en la actividad y su
+        duración: <em>I have been painting the wall</em> (puede que no
+        esté terminado; importa el proceso).
+      </p>
+    </div>
+  </div>
+
+  <div class="media-block">
+    <!-- 🎬 REEMPLAZA "video1.mp4" por tu archivo real dentro de static/assets/ -->
+    <video controls preload="metadata">
+      <source src="{{ url_for('static', filename='assets/video1.mp4') }}" type="video/mp4">
+      Tu navegador no soporta la reproducción de este video.
+    </video>
+    <div class="media-caption">
+      <span>Video comparativo: resultado vs. proceso</span>
+      <span class="media-type">Video 1</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FILA 2 — Multimedia (Izquierda) | Texto (Derecha)
+     ============================================================ -->
+<div class="lesson-row is-reversed">
+  <div class="media-block">
+    <!-- 🖼️ REEMPLAZA "image1.jpg" por tu archivo real dentro de static/assets/ -->
+    <img src="{{ url_for('static', filename='assets/image1.jpg') }}" alt="Lista de verbos de estado que no usan la forma continua">
+    <div class="media-caption">
+      <span>Infografía: verbos de estado (stative verbs)</span>
+      <span class="media-type">Imagen 1</span>
+    </div>
+  </div>
+
+  <div class="text-block">
+    <span class="row-index">02 — Verbos de estado</span>
+    <h3>Cuando el Continuo no aplica</h3>
+
+    <div class="text-en">
+      <span class="lang-label">English</span>
+      <p>
+        Stative verbs — like <em>know, believe, love, own, understand</em>
+        — describe states, not actions, so they don't take the continuous
+        form. Use the <strong>Simple</strong> form instead:
+        <em>I have known her for ten years</em> (not "have been knowing").
+      </p>
+    </div>
+
+    <div class="text-es">
+      <span class="lang-label">Español</span>
+      <p>
+        Los verbos de estado — como <em>know, believe, love, own,
+        understand</em> — describen estados, no acciones, así que no usan
+        la forma continua. Se usa el <strong>Simple</strong>:
+        <em>I have known her for ten years</em> (no "have been knowing").
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FILA 3 — Texto (Izquierda) | Multimedia (Derecha)
+     ============================================================ -->
+<div class="lesson-row">
+  <div class="text-block">
+    <span class="row-index">03 — Pistas de contexto</span>
+    <h3>Cómo elegir la forma correcta</h3>
+
+    <div class="text-en">
+      <span class="lang-label">English</span>
+      <p>
+        Look for clues in the sentence: a specific quantity or number
+        ("three times", "two cakes") usually points to
+        <strong>Simple</strong>, while an emphasis on time passing
+        ("for hours", "all morning") usually points to
+        <strong>Continuous</strong>.
+      </p>
+    </div>
+
+    <div class="text-es">
+      <span class="lang-label">Español</span>
+      <p>
+        Busca pistas en la oración: una cantidad o número específico
+        ("tres veces", "dos pasteles") normalmente indica
+        <strong>Simple</strong>, mientras que el énfasis en el paso del
+        tiempo ("durante horas", "toda la mañana") indica
+        <strong>Continuo</strong>.
+      </p>
+    </div>
+  </div>
+
+  <div class="media-block">
+    <!-- 🖼️ REEMPLAZA "image2.jpg" por tu archivo real dentro de static/assets/ -->
+    <img src="{{ url_for('static', filename='assets/image2.jpg') }}" alt="Diagrama de árbol para decidir entre Simple y Continuo">
+    <div class="media-caption">
+      <span>Diagrama de decisión: ¿Simple o Continuo?</span>
+      <span class="media-type">Imagen 2</span>
+    </div>
+  </div>
+</div>
+
+<h2 style="margin-top:24px;">Tabla comparativa rápida</h2>
+<div class="compare-table-wrap">
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="pill-simple">Present Perfect Simple</th>
+        <th class="pill-continuous">Present Perfect Continuous</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Formación</th>
+        <td>have / has + past participle</td>
+        <td>have / has + been + verb-ing</td>
+      </tr>
+      <tr>
+        <th>Enfoque</th>
+        <td>El resultado o el hecho consumado</td>
+        <td>La duración o el proceso de la acción</td>
+      </tr>
+      <tr>
+        <th>Ejemplo</th>
+        <td><em>I have written three emails today.</em></td>
+        <td><em>I have been writing emails all morning.</em></td>
+      </tr>
+      <tr>
+        <th>Palabras clave</th>
+        <td>already, yet, just, ever, never, times</td>
+        <td>how long, all day, lately, recently</td>
+      </tr>
+      <tr>
+        <th>Con verbos de estado</th>
+        <td>Sí (know, love, believe...)</td>
+        <td>No se usa</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
