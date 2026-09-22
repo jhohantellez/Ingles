@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Present Perfect Lab{% endblock %}</title>
+
+  <!-- Tipografías: Space Grotesk (display) + Inter (cuerpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="page-{{ active_page }}">
+
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a class="brand" href="{{ url_for('simple') }}">
+        <span class="brand-mark"></span>
+        Present Perfect Lab
+        <span class="brand-sub">&middot; Inglés Universitario</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        &#9776;
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li>
+          <a class="nav-link {% if active_page == 'simple' %}active{% endif %}" href="{{ url_for('simple') }}">
+            Presente Perfecto Simple
+          </a>
+        </li>
+        <li>
+          <a class="nav-link {% if active_page == 'continuous' %}active{% endif %}" href="{{ url_for('continuous') }}">
+            Presente Perfecto Continuo
+          </a>
+        </li>
+        <li>
+          <a class="nav-link {% if active_page == 'comparison' %}active{% endif %}" href="{{ url_for('comparison') }}">
+            Comparación
+          </a>
+        </li>
+        <li>
+          <a class="nav-link {% if active_page == 'quiz' %}active{% endif %}" href="{{ url_for('quiz') }}">
+            Parcial
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>Present Perfect Lab &mdash; material de apoyo para clase de inglés</span>
+      <span>Simple &middot; Continuo &middot; Comparación &middot; Parcial</span>
+    </div>
+  </footer>
+
+  <script>
+    // Menú móvil simple
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen);
+      });
+    }
+  </script>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>
