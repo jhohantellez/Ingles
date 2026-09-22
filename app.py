@@ -5,6 +5,21 @@ a estudiantes universitarios.
 """
 
 from flask import Flask, render_template
+@app.route("/test-static")
+def test_static():
+    import os
+
+    return {
+        "static_folder": app.static_folder,
+        "static_exists": os.path.exists(app.static_folder),
+        "assets_exists": os.path.exists(os.path.join(app.static_folder, "assets")),
+        "image_exists": os.path.exists(
+            os.path.join(app.static_folder, "assets", "images.png")
+        ),
+        "video_exists": os.path.exists(
+            os.path.join(app.static_folder, "assets", "ladelosplatos.mp4")
+        )
+    }
 
 app = Flask(__name__)
 
